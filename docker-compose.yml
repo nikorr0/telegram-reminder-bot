@@ -1,0 +1,11 @@
+services:
+  bot:
+    build: .
+    container_name: telegram-reminder-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      TZ: ${TZ:-Europe/London}
+    volumes:
+      - ./data:/app/data
